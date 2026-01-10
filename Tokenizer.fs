@@ -4,29 +4,7 @@ open System
 open System.Globalization
 open Tokens
 open Common
-
-let operatorConfig = 
-    [
-        ('+', (1, false))
-        ('-', (1, false))
-        ('*', (2, false))
-        ('/', (2, false))
-        ('^', (3, true))
-    ] |> Map.ofList
-
-let constants = 
-    [
-        ("pi", Math.PI)
-        ("e", Math.E)
-    ] |> Map.ofList
-
-let functions = 
-    [
-        ("sin", box Math.Sin)
-        ("cos", box Math.Cos)
-    ] |> Map.ofList
-
-let unaryPrecedence = 4
+open Configuration
 
 let tokenize (input: string) : Token list =
     let len = input.Length
