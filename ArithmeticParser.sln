@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36705.20 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ArithmeticParser", "ArithmeticParser.fsproj", "{455E0C85-4A03-439B-8C2A-9E29EA4CF788}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{455E0C85-4A03-439B-8C2A-9E29EA4CF788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{455E0C85-4A03-439B-8C2A-9E29EA4CF788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{455E0C85-4A03-439B-8C2A-9E29EA4CF788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{455E0C85-4A03-439B-8C2A-9E29EA4CF788}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {19869BF1-456E-492B-82B4-C5182400FF9B}
+	EndGlobalSection
+EndGlobal
