@@ -2,7 +2,6 @@ module Parser
 
 open Ast
 open Tokens
-open Configuration
 open Common
 
 let buildAst (tokens: Token list) : Expr =
@@ -21,7 +20,10 @@ let buildAst (tokens: Token list) : Expr =
     let expect token =
         match consume() with
         | t when t = token -> ()
-        | _ -> raise (ParseException "Unexpected token")
+        | _ ->
+            match token with
+            | RightParen -> raise (ParseException "Missing closing parenthesis")
+            | _ -> raise (ParseException "Unexpected token")
 
     let rec parseExpression minPrec =
         let mutable left = parsePrefix()
@@ -71,10 +73,11 @@ let buildAst (tokens: Token list) : Expr =
             expr
 
         | _ ->
-            raise (ParseException "Expression invalid")
+            raise (ParseException $"Unexpected token at position {pos}")
 
     and parseArguments acc =
         match peek() with
+        | None -> raise (ParseException "Missing closing parenthesis")
         | Some RightParen ->
             consume() |> ignore
             List.rev acc
@@ -88,6 +91,7 @@ let buildAst (tokens: Token list) : Expr =
             | Some RightParen ->
                 consume() |> ignore
                 List.rev (expr :: acc)
+            | None -> raise (ParseException "Missing closing parenthesis")
             | _ ->
                 raise (ParseException "Error in arguments parsing")
 
