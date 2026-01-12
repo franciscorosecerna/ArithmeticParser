@@ -100,4 +100,4 @@ let buildAst (tokens: Token list) : Expr =
     if pos < tokens.Length then
         raise (ParseException "Tokens remaining after parsing")
 
-    ast
+    Simplifier.simplify ast
