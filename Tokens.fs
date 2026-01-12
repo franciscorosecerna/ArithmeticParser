@@ -9,3 +9,4 @@ type Token =
     | LeftParen
     | RightParen
     | Comma
+    | Variable of string

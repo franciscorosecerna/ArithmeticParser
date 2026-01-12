@@ -58,20 +58,18 @@ let buildAst (tokens: Token list) : Expr =
         match consume() with
         | Number v ->
             Num v
-
         | Constant name ->
             ConstantRef name
-
+        | Variable name ->
+            Ast.Variable name
         | Function name ->
             expect LeftParen
             let args = parseArguments []
             Call(name, args)
-
         | LeftParen ->
             let expr = parseExpression 0
             expect RightParen
             expr
-
         | _ ->
             raise (ParseException $"Unexpected token at position {pos}")
 

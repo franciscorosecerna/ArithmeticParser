@@ -6,3 +6,4 @@ type Expr =
     | Unary of char * Expr
     | Call of string * Expr list
     | ConstantRef of string
+    | Variable of string
